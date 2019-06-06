@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Header from './components/header/header';
+import Nav from './components/nav/nav';
+import Profile from './components/profile/profile';
+import Dialogs from './components/dialogs/dialogs';
+import './App.scss';
+// import renderEntireTree from './redux/state'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const App = props => {
+    return (
+        <BrowserRouter>
+            <div className='app'>
+                <div className="wrapper">
+                    <Header />
+                    <Nav />
+                    <main className="content">
+                        {/*<Route path="/dialogs" component={Dialogs} />*/}
+                        {/*<Route path="/profile" component={Profile} />*/}
+
+                        <Route path="/dialogs"
+                               render={() => <Dialogs store={props.store} />} />
+
+                        <Route path="/profile"
+                               render={() => <Profile
+                                   state={props.state.profilePage}
+                                   dispatch={props.dispatch} />} />
+                    </main>
+                </div>
+            </div>
+        </BrowserRouter>
   );
-}
+};
 
 export default App;
