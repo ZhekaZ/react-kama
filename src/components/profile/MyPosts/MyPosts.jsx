@@ -3,7 +3,7 @@ import Post from './Post/Post';
 import s from './MyPosts.module.scss';
 import Button from '@material-ui/core/Button';
 // import TextField from '@material-ui/core/TextField';
-import {addPostActionCreator, updateNewPostTextActionCreator} from '../../../redux/profile.reducer';
+// import {addPostActionCreator, updateNewPostTextActionCreator} from '../../../redux/profile.reducer';
 
 const MyPosts = props => {
     const postsElements =
@@ -11,13 +11,17 @@ const MyPosts = props => {
 
     const newPostElement = React.createRef();
 
-    const addPost = () => {
-        props.dispatch(addPostActionCreator());
+    const onAddPost = () => {
+        props.addPost();
+        // props.dispatch(addPostActionCreator());
     };
 
     const onPostChange = () => {
-        let action = updateNewPostTextActionCreator(newPostElement.current.value);
-        props.dispatch(action);
+        const text = newPostElement.current.value;
+        props.updateNewPostText(text);
+
+        // const action = updateNewPostTextActionCreator(newPostElement.current.value);
+        // props.dispatch(action);
     };
 
     return (
@@ -26,17 +30,12 @@ const MyPosts = props => {
             <div>
                 <textarea
                     id="filled-multiline-flexible"
-                    label="Multiline"
-                    multiline
-                    rowsMax="4"
                     ref={newPostElement}
                     value={props.newPostText}
                     onChange={onPostChange}
-                    margin="normal"
-                    variant="filled"
                 />
                 <div>
-                    <Button onClick={addPost} variant="contained" color="primary"> Add post </Button>
+                    <Button onClick={onAddPost} variant="contained" color="primary"> Add post </Button>
                 </div>
             </div>
             <div className={s.posts}>

@@ -3,9 +3,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './components/header/header';
 import Nav from './components/nav/nav';
 import Profile from './components/profile/profile';
-import Dialogs from './components/dialogs/dialogs';
+import DialogsContainer from "./components/dialogs/dialogsContainer";
+
 import './App.scss';
-// import renderEntireTree from './redux/state'
 
 const App = props => {
     return (
@@ -19,12 +19,10 @@ const App = props => {
                         {/*<Route path="/profile" component={Profile} />*/}
 
                         <Route path="/dialogs"
-                               render={() => <Dialogs store={props.store} />} />
+                               render={() => <DialogsContainer />} />
 
                         <Route path="/profile"
-                               render={() => <Profile
-                                   state={props.state.profilePage}
-                                   dispatch={props.dispatch} />} />
+                               render={() => <Profile />} />
                     </main>
                 </div>
             </div>

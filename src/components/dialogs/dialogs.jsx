@@ -3,8 +3,6 @@ import {NavLink} from 'react-router-dom';
 import s from './dialogs.module.scss'
 import Button from "@material-ui/core/Button";
 
-import {sendMessageCreator, updateNewMessageBodyCreator} from '../../redux/dialogs.reducer';
-
 const DialogItem = props => {
     const url = '/dialogs/' + props.id;
     return(
@@ -20,19 +18,19 @@ const Message = props => {
 };
 
 const Dialogs = props => {
-    const state = props.store.getState().dialogsPage;
+    const state = props.dialogsPage;
 
     const DialogItems = state.dialogs.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />);
     const MessagesItems = state.messages.map(msg => <Message message={msg.message} />);
     const newMessageBody = state.newMessageBody;
 
     const onSendMessageClick = () => {
-        props.store.dispatch(sendMessageCreator());
+        props.sendMessage();
     };
 
     const onNewMessageChange = e => {
         const body = e.target.value;
-        props.store.dispatch(updateNewMessageBodyCreator(body));
+        props.updateNewMessageBody(body);
     };
 
     return (
