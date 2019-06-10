@@ -17,19 +17,19 @@ const profileReducer = (state = initialState, action) => {
                 likesCount: 0,
             };
 
-            state.posts.push(newPost);
-            state.newPostText = '';
-            break;
-
+            return {
+                ...state,
+                newPostText: '',
+                posts: [...state.posts, newPost]
+            };
         case CONST.UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newPostText;
-            break;
-
+            return {
+                ...state,
+                newPostText: action.newPostText,
+            };
         default:
-            break;
+            return state;
     }
-
-    return state;
 };
 
 export const addPostActionCreator = () => ({ type: CONST.ADD_POST });

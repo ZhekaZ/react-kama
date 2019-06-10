@@ -16,26 +16,27 @@ const initialState = {
         {id:12, name: 'Item 6'},
         {id:13, name: 'Item 7'},
     ],
-    newMessageBody: [
-
-    ],
+    newMessageBody: '',
 };
 
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case CONST.UPDATE_NEW_MESSAGE_BODY:
-            state.newMessageBody = action.body;
-            break;
+            return {
+                ...state,
+                newMessageBody: action.body,
+            };
         case CONST.SEND_MESSAGE:
             const body = state.newMessageBody;
-            state.newMessageBody = '';
-            state.messages.push({id: randomInt(1, 1000000), message: body});
-            break;
-        default:
-            break;
-    }
 
-    return state;
+            return {
+                ...state,
+                newMessageBody: '',
+                messages: [...state.messages, {id: randomInt(1, 1000000), message: body}],
+            };
+        default:
+            return state;
+    }
 };
 
 export const sendMessageCreator = () => ({ type: CONST.SEND_MESSAGE });

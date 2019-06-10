@@ -3,11 +3,11 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './components/header/header';
 import Nav from './components/nav/nav';
 import Profile from './components/profile/profile';
-import DialogsContainer from "./components/dialogs/dialogsContainer";
+import DialogsContainer from "./components/dialogs/DialogsContainer";
 
 import './App.scss';
 
-const App = props => {
+const App = () => {
     return (
         <BrowserRouter>
             <div className='app'>
