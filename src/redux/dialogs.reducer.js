@@ -2,19 +2,19 @@ import {CONST, randomInt} from '../CONST'
 
 const initialState = {
     messages: [
-        {id:3, message: 'Hi'},
-        {id:4, message: 'How is your deal?'},
-        {id:5, message: 'Yo man'},
-        {id:6, message: 'Are you hear me?'},
+        {id:randomInt(1, 1000000), message: 'Hi'},
+        {id:randomInt(1, 1000000), message: 'How is your deal?'},
+        {id:randomInt(1, 1000000), message: 'Yo man'},
+        {id:randomInt(1, 1000000), message: 'Are you hear me?'},
     ],
     dialogs: [
-        {id:7, name: 'Item 1'},
-        {id:8, name: 'Item 2'},
-        {id:9, name: 'Item 3'},
-        {id:10, name: 'Item 4'},
-        {id:11, name: 'Item 5'},
-        {id:12, name: 'Item 6'},
-        {id:13, name: 'Item 7'},
+        {id:randomInt(1, 1000000), name: 'Item ' + randomInt(1, 1000000)},
+        {id:randomInt(1, 1000000), name: 'Item ' + randomInt(1, 1000000)},
+        {id:randomInt(1, 1000000), name: 'Item ' + randomInt(1, 1000000)},
+        {id:randomInt(1, 1000000), name: 'Item ' + randomInt(1, 1000000)},
+        {id:randomInt(1, 1000000), name: 'Item ' + randomInt(1, 1000000)},
+        {id:randomInt(1, 1000000), name: 'Item ' + randomInt(1, 1000000)},
+        {id:randomInt(1, 1000000), name: 'Item ' + randomInt(1, 1000000)},
     ],
     newMessageBody: '',
 };

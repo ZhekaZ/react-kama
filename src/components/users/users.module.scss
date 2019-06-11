@@ -1,0 +1,27 @@
+.users {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user {
+  width: calc(100% / 3);
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.pagination {
+  padding: 10px;
+  text-align: center;
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+}
+
+.active {
+  font-weight: bold;
+}

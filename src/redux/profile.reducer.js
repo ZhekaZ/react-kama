@@ -2,8 +2,8 @@ import {CONST, randomInt} from '../CONST'
 
 const initialState = {
     posts: [
-        {id: 1, message: 'Hi, how are you?', likesCount: 3},
-        {id: 2, message: 'It is my 1st post', likesCount: 13},
+        {id: randomInt(1, 1000000), message: 'Hi, how are you?', likesCount: randomInt(1, 1000000)},
+        {id: randomInt(1, 1000000), message: 'It is my 1st post', likesCount: randomInt(1, 1000000)},
     ],
     newPostText: 'it-kamasutra.com',
 };

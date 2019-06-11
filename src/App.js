@@ -3,6 +3,8 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './components/header/header';
 import Nav from './components/nav/nav';
 import Profile from './components/profile/profile';
+import UsersContainer from "./components/users/UsersContainer";
+
 import DialogsContainer from "./components/dialogs/DialogsContainer";
 
 import './App.scss';
@@ -23,6 +25,9 @@ const App = () => {
 
                         <Route path="/profile"
                                render={() => <Profile />} />
+
+                        <Route path="/users"
+                               render={() => <UsersContainer />} />
                     </main>
                 </div>
             </div>
