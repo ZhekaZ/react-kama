@@ -5,12 +5,14 @@ import store from './redux/redux-store';
 import App from './App';
 import './index.scss';
 import Provider from "react-redux/es/components/Provider";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById('root')
+    <BrowserRouter>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </BrowserRouter>, document.getElementById('root')
 );
 
 // store.subscribe(() => {

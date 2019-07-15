@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 body {
-  font: 14px/1.2 ,'Roboto', sans-serif;
+  font: 14px/1.2, 'Roboto', sans-serif;
 }
 
 img {
@@ -14,6 +14,11 @@ ul {
   margin: 0;
 }
 
+.app {
+  position: relative;
+  overflow: hidden;
+}
+
 .link {
   color: #61dafb;
 }
@@ -24,14 +29,13 @@ ul {
   grid-template-rows: 60px 1fr;
   grid-template-columns: 4fr 12fr;
 
-  grid-template-areas:
-  "h h"
-  "n c";
+  grid-template-areas: "h h" "n c";
 }
 
 .content {
   grid-area: c;
   background-color: grey;
+  padding: 15px;
 }
 
 @keyframes App-logo-spin {

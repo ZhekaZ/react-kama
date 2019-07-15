@@ -6,6 +6,7 @@ const initialState = {
         {id: randomInt(1, 1000000), message: 'It is my 1st post', likesCount: randomInt(1, 1000000)},
     ],
     newPostText: 'it-kamasutra.com',
+    profile: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -27,13 +28,18 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 newPostText: action.newPostText,
             };
+        case CONST.SET_USER_PROFILE:
+            return {
+                ...state,
+                profile: action.profile,
+            };
         default:
             return state;
     }
 };
 
 export const addPostActionCreator = () => ({ type: CONST.ADD_POST });
-export const updateNewPostTextActionCreator = newPostText =>
-    ({type: CONST.UPDATE_NEW_POST_TEXT, newPostText});
+export const updateNewPostTextActionCreator = newPostText => ({type: CONST.UPDATE_NEW_POST_TEXT, newPostText});
+export const setUserProfile = profile => ({ type: CONST.SET_USER_PROFILE, profile });
 
 export default profileReducer;

@@ -1,0 +1,15 @@
+.loader {
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background: rgba(0,0,0,.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: 100px;
+  }
+}

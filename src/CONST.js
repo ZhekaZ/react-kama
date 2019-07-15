@@ -8,6 +8,8 @@ export const CONST = {
     SET_USERS: 'SET_USERS',
     SET_CURRENT_PAGE: 'SET_CURRENT_PAGE',
     SET_TOTAL_USERS_COUNT: 'SET_TOTAL_USERS_COUNT',
+    TOGGLE_IS_FETCHING: 'TOGGLE_IS_FETCHING',
+    SET_USER_PROFILE: 'SET_USER_PROFILE',
 };
 
 export const randomInt = (min, max) => {
