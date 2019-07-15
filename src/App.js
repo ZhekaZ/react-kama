@@ -1,19 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Header from './components/header/header';
 import Nav from './components/nav/nav';
 import UsersContainer from "./components/users/UsersContainer";
 import ProfileContainer from "./components/profile/profileContainer";
 import DialogsContainer from "./components/dialogs/DialogsContainer";
 
 import './App.scss';
+import HeaderContainer from "./components/header/HeaderContainer";
 
 const App = () => {
     return (
         <BrowserRouter>
             <div className='app'>
                 <div className="wrapper">
-                    <Header/>
+                    <HeaderContainer />
                     <Nav/>
                     <main className="content">
                         {/*<Route path="/dialogs" component={Dialogs} />*/}

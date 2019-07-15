@@ -10,3 +10,23 @@
   width: 76px;
   pointer-events: none;
 }
+
+.ToolbarBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.LoginBlock {
+  float: right;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    transition: .3s;
+
+    &:hover {
+      color: orange;
+    }
+  }
+}

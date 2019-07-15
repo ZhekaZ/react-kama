@@ -1,6 +1,7 @@
 import profileReducer from '../redux/profile.reducer';
 import dialogsReducer from '../redux/dialogs.reducer';
 import sidebarReducer from '../redux/sidebar.reducer';
+import authReducer from '../redux/auth.reducer';
 
 // STORE
 const store = {
