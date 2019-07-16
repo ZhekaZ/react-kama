@@ -1,4 +1,4 @@
-import {CONST, randomInt} from '../CONST'
+import { CONST } from '../CONST'
 
 const initialState = {
     userId: null,
@@ -21,7 +21,7 @@ const authReducer = (state = initialState, action) => {
 
 export const setUserDataAC = (userId, email, login) => ({
     type: CONST.SET_USER_DATA,
-    data: { userId, email, login },
+    data: {userId, email, login},
 });
 
 export default authReducer;
