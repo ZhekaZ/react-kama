@@ -35,5 +35,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "/users": {
+    "target": "https://social-network.samuraijs.com/",
+    "changeOrigin": true
+  },
+  "proxy" : "https://social-network.samuraijs.com/api/1.0/"
 }
