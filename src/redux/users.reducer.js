@@ -1,4 +1,5 @@
 import CONST from '../CONST'
+import { usersAPI } from "../api/api";
 
 const initialState = {
     users: [],
@@ -59,12 +60,44 @@ const usersReducer = (state = initialState, action) => {
     }
 };
 
+// action creators
 export const toggleIsFetchingAC = isFetching => ({ type: CONST.TOGGLE_IS_FETCHING, isFetching });
-export const followAC = userId => ({ type: CONST.FOLLOW, userId });
-export const unfollowAC = userId => ({type: CONST.UNFOLLOW, userId});
+export const followSuccess = userId => ({ type: CONST.FOLLOW, userId });
+export const unfollowSuccess = userId => ({type: CONST.UNFOLLOW, userId});
 export const setUsersAC = users => ({ type: CONST.SET_USERS, users });
 export const setCurrentPageAC = currentPage => ({ type: CONST.SET_CURRENT_PAGE, currentPage });
 export const setUsersToltalCountAC = totalUsersCount => ({ type: CONST.SET_TOTAL_USERS_COUNT, count: totalUsersCount });
 export const toggleFollowingProgressAC = (isFetching, userId) => ({ type: CONST.TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId });
+
+// thunks
+export const follow = userId => {
+    return dispatch => {
+        dispatch(toggleFollowingProgressAC(true, userId));
+        usersAPI.follow(userId)
+            .then(res => {
+                if (res.data.resultCode === 0) {
+                    dispatch(followSuccess(userId));
+                }
+
+                dispatch(toggleFollowingProgressAC(false, userId));
+            })
+            .catch(err => console.log(err));
+    }
+};
+
+export const unfollow = userId => {
+    return dispatch => {
+        dispatch(toggleFollowingProgressAC(true, userId));
+        usersAPI.unfollow(userId)
+            .then(res => {
+                if (res.data.resultCode === 0) {
+                    dispatch(unfollowSuccess(userId));
+                }
+
+                dispatch(toggleFollowingProgressAC(false, userId));
+            })
+            .catch(err => console.log(err));
+    }
+};
 
 export default usersReducer;

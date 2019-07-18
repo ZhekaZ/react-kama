@@ -1,18 +1,19 @@
 import React from 'react';
 import connect from 'react-redux/es/connect/connect';
 
-import {usersAPI} from '../../api/api';
+// import { usersAPI } from '../../api/api';
 import Users from './Users';
 import Preloader from '../common/preloader/preloader'
 
 import {
-    followAC,
+    followSuccess,
     setCurrentPageAC,
-    setUsersAC,
-    setUsersToltalCountAC,
-    unfollowAC,
-    toggleIsFetchingAC,
+    // setUsersAC,
+    // setUsersToltalCountAC,
+    unfollowSuccess,
+    // toggleIsFetchingAC,
     toggleFollowingProgressAC,
+    follow,
 } from '../../redux/users.reducer';
 
 
@@ -23,32 +24,16 @@ class UsersContainer extends React.Component {
     }
 
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-            .then(data => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(data.items);
-                this.props.setTotalUsersCount(data.totalCount);
-            })
-            .catch(err => console.log(err));
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
 
     onPageChanged(pageNumber) {
-        this.props.toggleIsFetching(true);
-        this.props.setCurrentPage(pageNumber);
-
-        usersAPI.getUsers(pageNumber, this.props.pageSize)
-            .then(data => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(data.items);
-            })
-            .catch(err => console.log(err));
+        this.props.getUsers(pageNumber);
     }
 
     render() {
         return <>
-            {this.props.isFetching ? <Preloader /> : null}
+            {this.props.isFetching ? <Preloader/> : null}
             <Users
                 totalUsersCount={this.props.totalUsersCount}
                 pageSize={this.props.pageSize}
@@ -100,11 +85,12 @@ const mapStateToProps = state => {
 // };
 
 export default connect(mapStateToProps, {
-    follow: followAC,
-    unfollow: unfollowAC,
-    setUsers: setUsersAC,
+    follow: followSuccess,
+    unfollow: unfollowSuccess,
+    // setUsers: setUsersAC,
     setCurrentPage: setCurrentPageAC,
-    setTotalUsersCount: setUsersToltalCountAC,
-    toggleIsFetching: toggleIsFetchingAC,
+    // setTotalUsersCount: setUsersToltalCountAC,
+    // toggleIsFetching: toggleIsFetchingAC,
     toggleFollowingProgress: toggleFollowingProgressAC,
+    getUsers: follow,
 })(UsersContainer);

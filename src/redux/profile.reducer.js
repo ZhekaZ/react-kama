@@ -1,4 +1,5 @@
 import {CONST, randomInt} from '../CONST'
+import { usersAPI } from "../api/api";
 
 const initialState = {
     posts: [
@@ -38,8 +39,18 @@ const profileReducer = (state = initialState, action) => {
     }
 };
 
+// action creators
 export const addPostActionCreator = () => ({ type: CONST.ADD_POST });
 export const updateNewPostTextActionCreator = newPostText => ({type: CONST.UPDATE_NEW_POST_TEXT, newPostText});
 export const setUserProfile = profile => ({ type: CONST.SET_USER_PROFILE, profile });
+
+//thunks
+export const getUserProfile = userId => dispatch => {
+    usersAPI.getProfile(userId)
+        .then(response => {
+            dispatch(setUserProfile(response.data));
+        });
+};
+
 
 export default profileReducer;

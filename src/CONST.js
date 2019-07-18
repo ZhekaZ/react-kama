@@ -1,6 +1,7 @@
 export const CONST = {
-    API_KEY: '4ba34780-aa76-4404-a015-810242509fba',
+    API_KEY: 'b2e542e6-cb45-4c67-b787-99dded0a32d2',
     ADD_POST: 'ADD-POST',
+    BASE_URL: 'https://social-network.samuraijs.com/api/1.0/',
     UPDATE_NEW_POST_TEXT: 'UPDATE-NEW-POST-TEXT',
     UPDATE_NEW_MESSAGE_BODY: 'UPDATE-NEW-MESSAGE-BODY',
     SEND_MESSAGE: 'SEND-MESSAGE',

@@ -8,6 +8,8 @@ import DialogsContainer from "./components/dialogs/DialogsContainer";
 import './App.scss';
 import HeaderContainer from "./components/header/HeaderContainer";
 
+import Login from './components/login/Login';
+
 const App = () => {
     return (
         <BrowserRouter>
@@ -18,6 +20,9 @@ const App = () => {
                     <main className="content">
                         {/*<Route path="/dialogs" component={Dialogs} />*/}
                         {/*<Route path="/profile" component={Profile} />*/}
+
+                        <Route path="/login"
+                               render={() => <Login/>}/>
 
                         <Route path="/dialogs"
                                render={() => <DialogsContainer/>}/>
